@@ -1,30 +1,40 @@
 var express = require('express');
-var app = express();
-var mongo = require('mongodb');
+var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
 var cors = require('cors');
-var ObjectId = require('mongodb').ObjectID;
-var heart = require('./modules/heart.js');
+var bodyParser = require('body-parser');
+var photoController = require('./controllers/photoController.js');
+var userController = require('./controllers/userController.js');
+var authController = require('./controllers/authController.js');
+var passport = require('passport');
+
+var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
+var mongooseURI = uriUtil.formatMongoose(DBURI);
+
+mongoose.connect(mongooseURI);
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
+var app = express();
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
-app.get('/api', function(request, response) {
-  	response.send('Working!');
-});
+app.use(passport.initialize());
+var router = express.Router();
 
-app.get('/api/stats', function (request, response) {
-  	response.send(heart.DummyData());
-});
+router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
+router.route('/users').post(userController.postUsers);
 
-app.get('/bronzecam', function(request, response) {
-	response.sendfile('pages/bronzecam.html');
-});
+app.use('/api', router);
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
-});
-
-
-
+app.listen(5000);
+console.log('Running on :5000');
 
