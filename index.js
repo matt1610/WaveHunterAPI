@@ -19,9 +19,12 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -31,6 +34,7 @@ app.use(passport.initialize());
 var router = express.Router();
 
 router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
+router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
 router.route('/users').post(userController.postUsers);
 
 app.use('/api', router);
