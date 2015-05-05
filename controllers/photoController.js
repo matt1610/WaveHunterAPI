@@ -7,13 +7,14 @@ exports.postPhoto = function(req, res) {
 
 	var photo = new Photo();
 
-	photo.country = req.body.country;
-	photo.state = req.body.state;
-	photo.break = req.body.break;
-	photo.city = req.body.city;
+	photo.country = req.body.country.toLowerCase();
+	photo.state = req.body.state.toLowerCase();
+	photo.break = req.body.break.toLowerCase();
+	photo.city = req.body.city.toLowerCase();
 	photo.comment = req.body.comment;
 	photo.src = req.body.src;
 	photo.date = req.body.date;
+	photo.user = req.body.user;
 
 	photo.save(function(err) {
 		if (err) {
@@ -28,17 +29,34 @@ exports.postPhoto = function(req, res) {
 // Get
 exports.getPhotos = function(req, res) {
 
-	var query = {};
-	query[req.body.criteria] = req.body.value;
+	var reg = req.body.value;
 
-	console.log(query);
+	if (req.body.type == 'Search') {
+		Photo.find().or(
+			[
+				{ 'state': { $regex: reg }},
+				{ 'break': { $regex: reg }},
+				{ 'city': { $regex: reg }}
+			])
+			.limit(20)
+			.exec(function(err, data) {
+		    	res.json(data);
+			});
+	} else {
+		var query = {};
+		query[req.body.criteria] = req.body.value;
 
-	// Photo.find(query, function(err, data) {
-	// 	res.json(data);
-	// });
+		console.log(query);
 
-Photo.find(query).limit(20).exec(function(err, data) {
-		res.json(data);
-	});
+		// Get all
+		Photo.find(query).limit(20).exec(function(err, data) {
+			res.json(data);
+		});
+	}
+
+	
+
+	
+	
 
 };

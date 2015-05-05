@@ -7,7 +7,8 @@ var BreakPhoto = new mongoose.Schema({
 	city : String,
 	comment : String,
 	src : String,
-	date : String
+	date : String,
+	user : String
 });
 
 module.exports = mongoose.model('BreakPhoto', BreakPhoto);

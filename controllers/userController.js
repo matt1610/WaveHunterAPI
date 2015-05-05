@@ -5,14 +5,22 @@ var User = require('../models/user.js');
 exports.postUsers = function(req, res) {
   var user = new User({
     username: req.query.username,
-    password: req.query.password
+    password: req.query.password,
+    email : req.query.email
   });
 
-  user.save(function(err) {
-    if (err)
-      res.send(err);
+  console.log(user);
 
-    res.json({ message: 'New user created', success : true });
+  user.save(function(err) {
+    if (err) {
+      // res.send(err);
+      res.json({ message: 'This username already exists', success : false });
+    } else{
+      res.json({ message: 'New user created', success : true });
+    }
+      
+
+    
   });
 };
 
