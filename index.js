@@ -1,36 +1,45 @@
 var express = require('express');
-var mongoose = require('mongoose');
-var uriUtil = require('mongodb-uri');
+
+// var mongoose = require('mongoose');
+
+// var uriUtil = require('mongodb-uri');
+
 var cors = require('cors');
-var bodyParser = require('body-parser');
-var photoController = require('./controllers/photoController.js');
-var userController = require('./controllers/userController.js');
-var authController = require('./controllers/authController.js');
-var passport = require('passport');
 
-var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
-var mongooseURI = uriUtil.formatMongoose(DBURI);
+// var bodyParser = require('body-parser');
 
-mongoose.connect(mongooseURI);
+// var photoController = require('./controllers/photoController.js');
 
-var db = mongoose.connection;
+// var userController = require('./controllers/userController.js');
 
-db.on('error', console.error.bind(console, 'connection error:'));
+// var authController = require('./controllers/authController.js');
+
+// var passport = require('passport');
+
+// var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
+
+// var mongooseURI = uriUtil.formatMongoose(DBURI);
+
+// mongoose.connect(mongooseURI);
+
+// var db = mongoose.connection;
+
+// db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 // var router = express.Router();
 
 // router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
