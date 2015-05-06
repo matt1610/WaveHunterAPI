@@ -31,13 +31,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
 app.use(passport.initialize());
-var router = express.Router();
+// var router = express.Router();
 
-router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
-router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
-router.route('/users').post(userController.postUsers);
+// router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
+// router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
+// router.route('/users').post(userController.postUsers);
 
-app.use('/api', router);
+// app.use('/api', router);
 
 app.get('/test', function(req, res) {
 	res.send({isOn : true});
