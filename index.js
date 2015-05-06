@@ -39,6 +39,10 @@ router.route('/users').post(userController.postUsers);
 
 app.use('/api', router);
 
+app.get('/test', function(req, res) {
+	res.send({isOn : true});
+});
+
 app.listen(5000);
 console.log('Running on :5000');
 
