@@ -1,6 +1,6 @@
 var express = require('express');
-var mongoose = require('mongoose');
-var uriUtil = require('mongodb-uri');
+// var mongoose = require('mongoose');
+// var uriUtil = require('mongodb-uri');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var photoController = require('./controllers/photoController.js');
@@ -8,14 +8,14 @@ var userController = require('./controllers/userController.js');
 var authController = require('./controllers/authController.js');
 var passport = require('passport');
 
-var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
-var mongooseURI = uriUtil.formatMongoose(DBURI);
+// var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
+// var mongooseURI = uriUtil.formatMongoose(DBURI);
 
-mongoose.connect(mongooseURI);
+// mongoose.connect(mongooseURI);
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
+// db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
