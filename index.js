@@ -1,4 +1,4 @@
-var express = require('express');
+// var express = require('express');
 // var mongoose = require('mongoose');
 // var uriUtil = require('mongodb-uri');
 // var cors = require('cors');
@@ -17,7 +17,7 @@ var express = require('express');
 
 // db.on('error', console.error.bind(console, 'connection error:'));
 
-var app = express();
+// var app = express();
 
 
 // app.use(bodyParser.urlencoded({
@@ -26,12 +26,12 @@ var app = express();
 
 // app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
+// app.set('port', (process.env.PORT || 5000));
+// app.use(express.static(__dirname + '/public'));
 // app.use(cors());
 
 // app.use(passport.initialize());
-var router = express.Router();
+// var router = express.Router();
 
 // router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
 // router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
@@ -39,10 +39,16 @@ var router = express.Router();
 
 // app.use('/api', router);
 
-app.get('/test', function(req, res) {
-	res.send({isOn : true});
-});
+// app.get('/test', function(req, res) {
+// 	res.send({isOn : true});
+// });
 
-app.listen(5000);
-console.log('Running on :5000');
+// app.listen(5000);
+// console.log('Running on :5000');
 
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
