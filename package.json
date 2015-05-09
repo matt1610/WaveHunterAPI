@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "",
     "cors": "",
     "express": "~4.9.x",
+    "mongodb": "",
+    "mongodb-uri": "",
+    "mongoose": "",
     "passport": "",
     "passport-http": "^0.2.2"
   },
