@@ -1,11 +1,11 @@
 var express = require('express');
 // var mongoose = require('mongoose');
 // var uriUtil = require('mongodb-uri');
-var cors = require('cors');
+// var cors = require('cors');
 // var bodyParser = require('body-parser');
-var photoController = require('./controllers/photoController.js');
-var userController = require('./controllers/userController.js');
-var authController = require('./controllers/authController.js');
+// var photoController = require('./controllers/photoController.js');
+// var userController = require('./controllers/userController.js');
+// var authController = require('./controllers/authController.js');
 // var passport = require('passport');
 
 // var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
@@ -28,7 +28,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-app.use(cors());
+// app.use(cors());
 
 // app.use(passport.initialize());
 var router = express.Router();
