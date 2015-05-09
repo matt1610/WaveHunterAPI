@@ -6,7 +6,7 @@ var cors = require('cors');
 var photoController = require('./controllers/photoController.js');
 var userController = require('./controllers/userController.js');
 var authController = require('./controllers/authController.js');
-var passport = require('passport');
+// var passport = require('passport');
 
 // var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
 // var mongooseURI = uriUtil.formatMongoose(DBURI);
@@ -30,7 +30,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 var router = express.Router();
 
 // router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);

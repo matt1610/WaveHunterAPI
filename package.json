@@ -9,12 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "cors": "",
-    "express": "~4.9.x",
-    "mongodb": "",
-    "mongodb-uri": "",
-    "mongoose": "",
-    "passport": "",
-    "passport-http": "^0.2.2"
+    "express": "~4.9.x"
   },
   "engines": {
     "node": "0.10.x"
