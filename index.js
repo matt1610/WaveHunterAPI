@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var photoController = require('./controllers/photoController.js');
 var userController = require('./controllers/userController.js');
 var authController = require('./controllers/authController.js');
+var advertController = require('./controllers/advertController.js');
 var passport = require('passport');
 
 var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';

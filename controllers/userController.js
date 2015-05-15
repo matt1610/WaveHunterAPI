@@ -8,15 +8,13 @@ exports.postUsers = function(req, res) {
     password: req.query.password,
     email : req.query.email
   });
-
-  console.log(user);
-
+  
   user.save(function(err) {
     if (err) {
       // res.send(err);
       res.json({ message: 'This username already exists', success : false });
     } else{
-      res.json({ message: 'New user created', success : true });
+      res.json({ message: 'Welcome to WaveHunter', success : true });
     }
       
 
