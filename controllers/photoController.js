@@ -7,7 +7,10 @@ exports.postPhoto = function(req, res) {
 
 	var photo = new Photo();
 
-	photo.country = req.body.country.toLowerCase();
+	if (req.body.country) {
+		photo.country = req.body.country.toLowerCase();
+	};
+	
 	photo.state = req.body.state.toLowerCase();
 	photo.break = req.body.break.toLowerCase();
 	photo.city = req.body.city.toLowerCase();
@@ -15,6 +18,8 @@ exports.postPhoto = function(req, res) {
 	photo.src = req.body.src;
 	photo.date = req.body.date;
 	photo.user = req.body.user;
+
+
 
 	photo.save(function(err) {
 		if (err) {
