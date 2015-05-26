@@ -27,7 +27,7 @@ exports.createAdvert = function(req, res) {
 
 
 exports.getAdvert = function(req, res) {
-  res.send(true);
+  res.json({ src: 'This is the SRC', link : 'This is the link' });
   // Advert.find(function(err, adverts) {
   //   if (err)
   //     res.send(err);
