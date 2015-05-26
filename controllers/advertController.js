@@ -27,10 +27,11 @@ exports.createAdvert = function(req, res) {
 
 
 exports.getAdvert = function(req, res) {
-  Advert.find(function(err, adverts) {
-    if (err)
-      res.send(err);
+  res.send(true);
+  // Advert.find(function(err, adverts) {
+  //   if (err)
+  //     res.send(err);
 
-    res.json(adverts);
-  });
+  //   res.json(adverts);
+  // });
 };

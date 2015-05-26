@@ -37,6 +37,7 @@ var router = express.Router();
 router.route('/photos').post(authController.isAuthenticated, photoController.postPhoto);
 router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
 router.route('/users').post(userController.postUsers);
+router.route('/adverts').post(advertController.getAdvert);
 
 app.use('/api', router);
 
