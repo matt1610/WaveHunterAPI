@@ -20,7 +20,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -38,6 +37,7 @@ router.route('/photos').post(authController.isAuthenticated, photoController.pos
 router.route('/getphotos').post(authController.isAuthenticated, photoController.getPhotos);
 router.route('/users').post(userController.postUsers);
 router.route('/adverts').post(advertController.getAdvert);
+router.route('/delete').post(photoController.deletePhoto);
 
 app.use('/api', router);
 
