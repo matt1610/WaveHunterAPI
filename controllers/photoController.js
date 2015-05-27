@@ -32,7 +32,7 @@ exports.postPhoto = function(req, res) {
 
 exports.deletePhoto = function(req, res) {
 	Photo.find({ _id : req.body._id }).remove().exec(function(response) {
-		console.log(response);
+		res.json(response);
 	});
 }
 
