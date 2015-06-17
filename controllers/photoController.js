@@ -18,6 +18,7 @@ exports.postPhoto = function(req, res) {
 	photo.src = req.body.src;
 	photo.date = req.body.date;
 	photo.user = req.body.user;
+	photo.weather = req.body.Weather;
 
 
 
