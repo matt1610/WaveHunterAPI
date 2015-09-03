@@ -9,7 +9,7 @@ var authController = require('./controllers/authController.js');
 var advertController = require('./controllers/advertController.js');
 var passport = require('passport');
 
-var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
+var DBURI = PROCESS.ENV.DBURI;
 var mongooseURI = uriUtil.formatMongoose(DBURI);
 
 mongoose.connect(mongooseURI);
@@ -47,10 +47,3 @@ app.get('/test', function(req, res) {
 
 app.listen(process.env.PORT || 5000);
 console.log('Running on :5000');
-
-// var http = require('http');
-// http.createServer(function (req, res) {
-//   res.writeHead(200, {'Content-Type': 'text/plain'});
-//   res.end('Hello World\n');
-// }).listen(process.env.PORT || 5000);
-// console.log('Server running at http://127.0.0.1:1337/');
