@@ -9,7 +9,7 @@ var authController = require('./controllers/authController.js');
 var advertController = require('./controllers/advertController.js');
 var passport = require('passport');
 
-var DBURI = PROCESS.ENV.DBURI;
+var DBURI = 'mongodb://mattstarkey:element12@ds031922.mongolab.com:31922/wavehunter';
 var mongooseURI = uriUtil.formatMongoose(DBURI);
 
 mongoose.connect(mongooseURI);
